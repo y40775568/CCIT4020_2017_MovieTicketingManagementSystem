@@ -26,17 +26,27 @@ void menu()
 	switch(option)
 	{
 		case '1':
-		break;
+			/* addMov() */ /* Add New Movie Ticketing Records function go here*/
+			menu();
+			break;
 		case '2':
-		break;
+			/* dispMov() */ /* Display All Movie Ticketing Records function go here */
+			menu();
+			break;
 		case '3':
-		break;
+			/* modMov() */ /* Modify Movie Ticketing Records function go here */
+			menu();
+			break;
 		case '4':
-		break;
+			/* findMov() */ /* Search Movie Ticketing Records function go here */
+			menu();
+			break;
 		case '5':
-		break;
+			/* delMov() */ /* Delete Movie Ticketing Records function go here */
+			menu();
+			break;
 		default:
-		printf(" Please select a correct number (1-5)!");
-		menu();
+			printf(" Please select a correct number (1-5)!");
+			menu();
 	}
 }
