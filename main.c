@@ -1,4 +1,9 @@
 #include <stdio.h>
+void addMov();
+void dispMov();
+void modMov();
+void findMov();
+void delMov();
 
 int main()
 {
@@ -21,19 +26,19 @@ int main()
 		switch(option)
 		{
 			case '1':
-				/* addMov() */ /* Add New Movie Ticketing Records function go here*/
+				addMov(); /* Add New Movie Ticketing Records function go here*/
 				break;
 			case '2':
-				/* dispMov() */ /* Display All Movie Ticketing Records function go here */
+				dispMov(); /* Display All Movie Ticketing Records function go here */
 				break;
 			case '3':
-				/* modMov() */ /* Modify Movie Ticketing Records function go here */
+				modMov(); /* Modify Movie Ticketing Records function go here */
 				break;
 			case '4':
-				/* findMov() */ /* Search Movie Ticketing Records function go here */
+				findMov(); /* Search Movie Ticketing Records function go here */
 				break;
 			case '5':
-				/* delMov() */ /* Delete Movie Ticketing Records function go here */
+				delMov(); /* Delete Movie Ticketing Records function go here */
 				break;
 			case '6':
 				printf(" See you next time :)");
@@ -44,4 +49,25 @@ int main()
 	} while(option!='6');
 	
 	return 0;
+}
+
+void addMov()
+{
+	
+}
+void dispMov()
+{
+	
+}
+void modMov()
+{
+	
+}
+void findMov()
+{
+	
+}
+void delMov()
+{
+	
 }
