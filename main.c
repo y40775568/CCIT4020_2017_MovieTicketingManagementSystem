@@ -40,19 +40,19 @@ void main()
 		switch(option)
 		{
 			case 1:
-				addMov(); /* Add New Movie Ticketing Records */
+				addMov(); /* Add New Movie Ticketing Records function go here*/
 				break;
 			case 2:
-				dispMov(); /* Display All Movie Ticketing Records */
+				dispMov(); /* Display All Movie Ticketing Records function go here */
 				break;
 			case 3:
-				modMov(); /* Modify Movie Ticketing Records */
+				modMov(); /* Modify Movie Ticketing Records function go here */
 				break;
 			case 4:
-				findMov(); /* Search Movie Ticketing Records */
+				findMov(); /* Search Movie Ticketing Records function go here */
 				break;
 			case 5:
-				delMov(); /* Delete Movie Ticketing Records */
+				delMov(); /* Delete Movie Ticketing Records function go here */
 				break;
 			case 6:
 				printf(" See you next time :)");
@@ -98,23 +98,25 @@ void addMov()
 		fprintf(fp,"%d\n%s\n%s\n%s\n%d\n%d\n%d\n%s\n%d\n\n",b.mnum,b.cname,b.mname,b.mdate,b.mtime,b.guestsnum,b.housenum,b.ttype,b.fee);
 		printf("Record insert sucessful!");
 	}
-		printf("\n");
+	printf("\n");
 	fclose(fp);
 	
-	do{
-	printf("Add another record (y/n)?");
-	scanf("%s",&op);
-	switch(op)
+	do
 	{
-		case 'y':
-			printf("\n");
-			addMov();
-		case 'n':
-			printf("\n");
-			main();
-		default:
+		printf("Add another record (y/n)?");
+		scanf("%s",&op);
+		switch(op)
+		{
+			case 'y':
+				printf("\n");
+				addMov();
+			case 'n':
+				printf("\n");
+				main();
+			default:
 				printf("Please select (y) or (n)!\n");
-	}}while(op!='n');
+		}
+	} while(op!='n');
 }
 
 void dispMov()
@@ -131,7 +133,7 @@ void dispMov()
 	}
 	else
 	{	
-		while( ( ch = fgetc(fp) ) != EOF )
+		while((ch=fgetc(fp))!=EOF)
 		{
 			printf("%c",ch);
 		}
