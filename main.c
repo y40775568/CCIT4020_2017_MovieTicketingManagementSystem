@@ -13,7 +13,7 @@ struct book
 	int mnum;
 	char cname[30];
 	char mname[30];
-	char mdate[50];
+	char mdate[12];
 	int mtime;
 	char ttype[30];
 	int guestsnum;
@@ -66,19 +66,29 @@ void main()
 
 void addMov()
 {
-	char op, ph;
-	FILE *fp;
 	struct book b;
+	char op,;
+	FILE *fp;
+
 	printf("Enetr Movie Booking Number (XXXX): ");	
 	scanf("%d",&b.mnum);
+	while(b.mnum<1||b.mnum>9999)
+	{printf("reEnetr Movie Booking Number (XXXX): ");	
+	scanf("%d",&b.mnum);
+	};
 	printf("Enetr Name of Customer: ");	
-	scanf("%s",b.cname);
+	gets(b.cname);
+	gets(b.cname);
 	printf("Enetr Name of Movie: ");	
-	scanf("%s",b.mname);
+	gets(b.mname);
 	printf("Enetr Movie Schedule (DD-MM-YYYY): ");	
-	scanf("%s",b.mdate);
+	gets(b.mdate);
 	printf("Enetr Time (XXXX):");	
 	scanf("%d",&b.mtime);
+	while(b.mtime<1000||b.mtime>2300)
+	{printf("reEnetr Time (XXXX):");	
+	scanf("%d",&b.mtime);
+	};
 	printf("Enetr Number of Guests: ");	
 	scanf("%d",&b.guestsnum);
 	printf("Enter House Number: ");
@@ -117,6 +127,7 @@ void addMov()
 				printf("Please select (y) or (n)!\n");
 		}
 	} while(op!='n');
+
 }
 
 void dispMov()
