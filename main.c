@@ -14,13 +14,13 @@ struct book
 	char cname[30];
 	char mname[30];
 	char mdate[50];
-	int mtime;
+	char mtime[5];
 	char ttype[30];
 	int guestsnum;
 	int housenum;
 	int fee;
-};
-
+}
+;
 void main()
 {	
 	int option;
@@ -65,20 +65,22 @@ void main()
 }
 
 void addMov()
-{
+{	
+	struct book b;
 	char op, ph;
 	FILE *fp;
-	struct book b;
+
 	printf("Enetr Movie Booking Number (XXXX): ");	
 	scanf("%d",&b.mnum);
 	printf("Enetr Name of Customer: ");	
-	scanf("%s",b.cname);
+	gets(b.cname);
+	gets(b.cname);
 	printf("Enetr Name of Movie: ");	
-	scanf("%s",b.mname);
+	gets(b.mname);
 	printf("Enetr Movie Schedule (DD-MM-YYYY): ");	
-	scanf("%s",b.mdate);
+	gets(b.mdate);
 	printf("Enetr Time (XXXX):");	
-	scanf("%d",&b.mtime);
+	gets(b.mtime);
 	printf("Enetr Number of Guests: ");	
 	scanf("%d",&b.guestsnum);
 	printf("Enter House Number: ");
@@ -95,7 +97,7 @@ void addMov()
 	}
 	else
 	{
-		fprintf(fp,"%d\n%s\n%s\n%s\n%d\n%d\n%d\n%s\n%d\n\n",b.mnum,b.cname,b.mname,b.mdate,b.mtime,b.guestsnum,b.housenum,b.ttype,b.fee);
+		fprintf(fp,"%d\n%s\n%s\n%s\n%s\n%d\n%d\n%s\n%d\n\n",b.mnum,b.cname,b.mname,b.mdate,b.mtime,b.guestsnum,b.housenum,b.ttype,b.fee);
 		printf("Record insert sucessful!");
 	}
 	printf("\n");
@@ -117,6 +119,7 @@ void addMov()
 				printf("Please select (y) or (n)!\n");
 		}
 	} while(op!='n');
+
 }
 
 void dispMov()
