@@ -7,7 +7,6 @@ void dispMov();
 void modMov();
 void findMov();
 void delMov();
-void showmovie();
 
 struct book
 {
@@ -36,9 +35,8 @@ void main()
 		printf("\n 3. Modify Movie Ticketing Record(s)\n");
 		printf("\n 4. Search Movie Ticketing Record(s)\n");
 		printf("\n 5. Delete Movie Ticketing Record(s)\n");
-		printf("\n 6. All Movies\n");
-		printf("\n 7. Quit\n");
-		printf("\nWhat is your option (1-7)? ");
+		printf("\n 6. Quit\n");
+		printf("\nWhat is your option (1-6)? ");
 		scanf("%d", &option);
 		switch(option)
 		{
@@ -58,16 +56,13 @@ void main()
 				delMov(); /* Delete Movie Ticketing Records function go here */
 				break;
 			case 6:
-				showmovie();
-				break;
-			case 7:
 				printf("See you next time :)");
 				exit(0);
 				break;
 			default:
-				printf("Please select a correct number (1-7)!");
+				printf("Please select a correct number (1-6)!");
 		}
-	} while(option!=7);
+	} while(option!=6);
 }
 
 void addMov()
@@ -77,26 +72,16 @@ void addMov()
 	FILE *fp;
 	printf("Enter Movie Booking Number (XXXX): ");	
 	scanf("%d",&b.mnum);
-	while(b.mnum<1||b.mnum>9999)
-	{
-		printf("Re-enter Movie Booking Number! It should be between 0001 to 9999!: ");	
-		scanf("%d",&b.mnum);
-	};
-	printf("Enetr Name of Customer: ");	
+	printf("Enter Name of Customer: ");	
 	gets(b.cname);
 	gets(b.cname);
-	printf("Enetr Name of Movie: ");	
+	printf("Enter Name of Movie: ");	
 	gets(b.mname);
-	printf("Enetr Movie Schedule (DD-MM-YYYY): ");	
+	printf("Enter Movie Schedule (DD-MM-YYYY): ");	
 	gets(b.mdate);
-	printf("Enetr Time (XXXX): ");	
+	printf("Enter Time (XXXX): ");	
 	scanf("%d",&b.mtime);
-	while(b.mtime<1000||b.mtime>2300)
-	{
-		printf("Re-enetr Time! It should be in 24-hour format and between 1000 to 2300!: ");	
-		scanf("%d",&b.mtime);
-	};
-	printf("Enetr Number of Guests: ");	
+	printf("Enter Number of Guests: ");	
 	scanf("%d",&b.guestsnum);
 	printf("Enter House Number: ");
 	scanf("%d",&b.housenum);
@@ -104,7 +89,7 @@ void addMov()
 	scanf("%s",b.ttype);
 	printf("Enter Total Fee: ");
 	scanf("%d",&b.fee);
-	fp=fopen("ticket.txt","a");
+	fp=fopen("movie.txt","a");
 	if(fp == NULL)
 	{
 		printf("File not found!");
@@ -139,7 +124,7 @@ void dispMov()
 	char ch;
 	FILE *fp;
 	printf("\n");
-	fp = fopen("ticket.txt","r");
+	fp = fopen("movie.txt","r");
 	if(fp == NULL)
 	{
 		printf("File not found!");
@@ -169,7 +154,7 @@ void findMov()
 	printf("Enter booking number: ");
 	scanf("%s",bk);
 	FILE *fp;
-	fp =fopen("ticket.txt","r");
+	fp =fopen("movie.txt","r");
 	if (fp==NULL)
  	{	
 	    printf("File not found!");
@@ -229,118 +214,3 @@ void delMov()
 	
 }
 
-void showmovie()
-{
-	printf("\nChoose a type of movie:\n\n");
-	int option;
-	printf("1.Action movie\n");
-	printf("2.War movie\n");
-	printf("3.Sci-fi movie\n");
-	printf("4.Horror movie\n");	
-	printf("5.Animated movie\n");
-	printf("6.Back to main menu\n");
-	printf("\nWhat is your option (1-6)? ");
-	scanf("%d", &option);
-	switch(option)
-	{
-		case 1:
-			printf("\n1.The Equalizer\n");
-			printf("2.Mad Max: Fury Road\n");
-			printf("3.Logan\n");
-			printf("\nBack to main menu (1)\n");
-			printf("Choose another type of movie select (2)\n");
-			scanf("%d",&option);
-			switch(option)
-			{
-				case 1:
-					printf("\n");
-					main();
-				case 2:
-					printf("\n");
-					showmovie();
-				default:
-					printf("Please select (1) or (2)!\n");
-			} while(option!=2);
-			break;
-		case 2:
-			printf("\n1.Saving Private Ryan\n");
-			printf("2.Un long dimanche de fiancailles\n");
-			printf("3.Braveheart\n");
-			printf("\nBack to main menu select (1)\n");
-			printf("Choose another type of movie select (2)\n");
-			scanf("%d",&option);
-			switch(option)
-			{
-				case 1:
-					printf("\n");
-					main();
-				case 2:
-					printf("\n");
-					showmovie();
-				default:
-					printf("Please select (1) or (2)!\n");
-			} while(option!=2);
-			break;
-		case 3:
-			printf("\n1.Justice League\n");
-			printf("2.Suicide Squad\n");
-			printf("3.Wonder Woman\n");
-			printf("\nBack to main menu select (1)\n");
-			printf("Choose another type of movie select (2)\n");
-			scanf("%d",&option);
-			switch(option)
-			{
-				case 1:
-					printf("\n");
-					main();
-				case 2:
-					printf("\n");
-					showmovie();
-				default:
-					printf("Please select (1) or (2)!\n");
-			} while(option!=2);
-			break;
-		case 4:
-			printf("\n1.IT\n");
-			printf("2.Get Out\n");
-			printf("3.The Witch\n");
-			printf("\nBack to main menu select (1)\n");
-			printf("Choose another type of movie select (2)\n");
-			scanf("%d",&option);
-			switch(option)
-			{
-				case 1:
-					printf("\n");
-					main();
-				case 2:
-					printf("\n");
-					showmovie();
-				default:
-					printf("Please select (1) or (2)!\n");
-			} while(option!=2);
-			break;
-		case 5:
-			printf("\n1.Inside Out\n");
-			printf("2.Zootopia\n");
-			printf("3.Finding Nemo\n");
-			printf("\nBack to main menu select (1)\n");
-			printf("Choose another type of movie select (2)\n");
-			scanf("%d",&option);
-			switch(option)
-			{
-				case 1:
-					printf("\n");
-					main();
-				case 2:
-					printf("\n");
-					showmovie();
-				default:
-					printf("\nPlease select (1) or (2)!\n");
-			} while(option!=2);
-			break;
-		case 6:
-			main();
-		default:
-			printf("Please select a correct number (1-6)!");
-	} while(option!=6);
-}
